@@ -35,3 +35,57 @@ This is a web application for the institutions who wants a system that has varie
 - Open the database
 - In `AspNetRoles` table add  Administrator and Doctor.
 - Run the project. Go to   http://localhost:xxxx/Account/Register  to add admin user.
+
+## Snapshots
+
+<img src="img/a (2).png">
+
+---
+
+<img src="img/a (3).png">
+
+---
+
+<img src="img/a (4).png">
+
+---
+
+<img src="img/a (5).png">
+
+---
+
+<img src="img/a (6).png">
+
+---
+
+<img src="img/a (7).png">
+
+---
+
+<img src="img/a (8).png">
+
+---
+
+<img src="img/a (9).png">
+
+---
+
+<img src="img/a (10).png">
+
+---
+
+<img src="img/a (11).png">
+
+---
+
+<img src="img/a (12).png">
+
+---
+
+<img src="img/a (13).png">
+
+---
+
+<img src="img/a (14).png">
+
+---
