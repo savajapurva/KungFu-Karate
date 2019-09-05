@@ -74,10 +74,6 @@ This is a web application for the institutions who wants a system that has varie
 
 ---
 
-<img src="img/a (11).png">
-
----
-
 <img src="img/a (12).png">
 
 ---
