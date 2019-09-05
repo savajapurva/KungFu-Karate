@@ -1,5 +1,5 @@
 
-<img src="img/a.png">
+<img src="img/a(1).png">
 
 # Clinic Management
 
