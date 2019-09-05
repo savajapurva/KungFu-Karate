@@ -1,0 +1,92 @@
+﻿@model IEnumerable<ClinicManagement.Core.Models.ATTENDANCE_DETAILS>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="page-title">
+    <div class="title_left">
+        <h3><b>ATTENDENCE DETAILS</b></h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_content">
+
+
+                <div class="well" style="overflow:auto">
+                    <div class="col-md-6">
+                        @using (Html.BeginForm("Index", "ATTENDANCE_DETAILS", FormMethod.Get))
+                        {
+                            <label>First Name: </label>
+                            @Html.TextBox("fname", "", new { @class = "input-sm" });
+                            <label>Last Name: </label>
+                            @Html.TextBox("lname", "", new { @class = "input-sm" });
+                            <br />
+                            <br />
+                            <label>StartDate: </label>
+                            @Html.TextBox("searchString", "", new { @class = "datepicker", type = "date" });
+                            <label>EndDate: </label>
+                            @Html.TextBox("searchString1", "", new { @class = "datepicker", type = "date" });
+                            <input class="btn btn-primary" id="Submit1" type="submit" value="Ok" />
+
+                        }
+
+
+
+                    </div>
+                </div>
+
+
+                <button class="btn btn-default">
+                    @Html.ActionLink("Create New", "Create")
+                </button>
+
+                <table id="patients" class="data table table-striped table-bordered no-margin" style="overflow-x: auto" ">
+                    <tr>
+                        <th>
+                            ATTENDANCE DATE
+                        </th>
+                        <th>
+                            CLASS NAME
+                        </th>
+                        <th>
+                            FIRST NAME
+                        </th>
+                        <th>
+                            LAST NAME
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ATTENDANCE_DATE)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CLASS_DETAILS.CLASS_NAME)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.STUDENT_DETAILS.FIRST_NAME)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.STUDENT_DETAILS.LAST_NAME)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ATTENDANCE_ID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ATTENDANCE_ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ATTENDANCE_ID })
+                    </td>
+                </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

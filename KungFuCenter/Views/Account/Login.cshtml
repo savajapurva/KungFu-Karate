@@ -1,0 +1,49 @@
+﻿@model ClinicManagement.Core.ViewModel.LoginViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutOut.cshtml";
+    ViewBag.Title = "Log in";
+}
+
+<html>
+<body style="background-image:url('http://xtremyblog.com/wp-content/uploads/2019/03/urlsairctjqesrcssourceimagescdved2ahUKEwjvuoqc58vaAhVJvlMKHSPnCUoQjRx6BAgAEAUurlhttp3A2F2Ftigerpawma.jpg');
+background-position:right;background-repeat:no-repeat;background-position: 145% 84%;">
+    <div style="position:absolute; margin-top:110px;">
+        <div class="login_wrapper">
+            <section id="loginForm" class="login_content">
+                <div>
+                    <h1 style="color:red">Kung Fu Karate Academy</h1>
+                </div>
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "animate form login_form", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <h1 style="color:darkslategrey">Login Form</h1>
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div>
+
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div>
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div>
+                        <input type="submit" value="Log in" class="btn btn-default" style="background-color: lightgray;
+    color: red;    border-color: darkslategrey;    width: 100px;    float: none;    margin-left: 0;" />
+                    </div>
+
+
+                }
+            </section>
+        </div>
+
+    </div>
+</body>
+</html>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

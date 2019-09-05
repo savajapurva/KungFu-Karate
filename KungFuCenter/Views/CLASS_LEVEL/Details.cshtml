@@ -1,0 +1,26 @@
+﻿@model ClinicManagement.Core.Models.CLASS_LEVEL
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CLASS_LEVEL</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LEVEL_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LEVEL_NAME)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CLASS_LEVEL_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

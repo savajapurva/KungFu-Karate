@@ -1,0 +1,26 @@
+﻿@model ClinicManagement.Core.Models.RANK_DETAILS
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RANK_DETAILS</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BELT_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BELT_NAME)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RANK_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

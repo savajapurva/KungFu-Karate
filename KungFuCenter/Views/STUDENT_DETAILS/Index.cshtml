@@ -1,0 +1,131 @@
+﻿@model PagedList.IPagedList<ClinicManagement.Core.Models.STUDENT_DETAILS>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-title">
+    <div class="title_left">
+        <h3><b>STUDENT DETAILS</b></h3>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_content">
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <button class="btn btn-default">
+                            @Html.ActionLink("Create New", "Create")
+                        </button>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div id="users_filter" class="dataTables_filter">
+                                @using (Html.BeginForm("Index", "STUDENT DETAILS", FormMethod.Post))
+                                {
+                                    @Html.TextBox("searchString", ViewBag.CurrentFilter as string, new { @class = "input-sm" })
+                                    <input class="btn btn-primary" id="Submit1" type="submit" value="Filter" />
+
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="table-responsive">
+                    <table id="patients" class="data table table-striped table-bordered no-margin" style="overflow-x: auto">
+                        <tr>
+                            <th>
+                                @Html.ActionLink("FIRST NAME", "Index", new { sortOrder = ViewBag.FIRST_NAMESortParm })
+                            </th>
+                            <th>
+                                @Html.ActionLink("LAST NAME", "Index", new { sortOrder = ViewBag.LAST_NAMESortParm })
+                            </th>
+                            <th>
+                                @Html.ActionLink("DATE OF BIRTH", "Index", new { sortOrder = ViewBag.DOB })
+                            </th>
+                            <th>
+                                @Html.ActionLink("DATE OF JOINING", "Index", new { sortOrder = ViewBag.DATE_OF_JOINING })
+                            </th>
+                            @*<th>
+                                RANK NAME
+                            </th>*@
+                            <th>
+                                CONTACT NUMBER
+                            </th>
+                            <th>
+                                EMAIL ID
+                            </th>
+                          
+                            <th>
+                                STREET ADDRESS
+                            </th>
+                          
+                            <th>
+                                ACTIVE
+                            </th>
+
+
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FIRST_NAME)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LAST_NAME)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DOB)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DATE_OF_JOINING)
+                        </td>
+                        @*<td>
+                            @Html.DisplayFor(modelItem => item.RANK_DETAILS.BELT_NAME)
+                        </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CONTACT_NUM)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EMAIL_ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.STREET_ADDRESS)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ACTIVE)
+                        </td>
+
+
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.STUDENT_ID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.STUDENT_ID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.STUDENT_ID })
+                        </td>
+                    </tr>
+                        }
+
+
+                    </table>
+
+                    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+                    @Html.PagedListPager(Model, page => Url.Action("Index",
+                        new { page, currentFilter = ViewBag.CurrentFilter }))
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

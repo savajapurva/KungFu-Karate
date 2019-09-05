@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ClinicManagement.Core.Models.PAYMENT_DETAILS>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-title">
+    <div class="title_left">
+        <h3><b>PAYMENT RECORDS</b></h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_content">
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        
+                        <button class="btn btn-default">
+                            @Html.ActionLink("Create New", "Create")
+                        </button>
+                    </div>
+                    <div class="col-sm-6">
+                        <div id="users_filter" class="dataTables_filter">
+                            @using (Html.BeginForm("Index", "PAYMENT_DETAILS", FormMethod.Post))
+                            {
+                                <label style="margin-right:70px">Search Category</label>
+                                @Html.TextBox("searchString", "", new { @class = "input-sm" });
+                                <input class="btn btn-primary" id="Submit1" type="submit" value="Filter" />
+                            }
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <table class="data table table-striped table-bordered no-margin" style="overflow-x: auto">
+                    <tr>
+                        <th>
+                            PRODUCT CATEGORY
+                        </th>
+                        <th>
+                            MONEY RECEIVED
+                        </th>
+                        <th>
+                            DATE RECEIVED
+                        </th>
+                        <th>
+                            FIRST NAME
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PRODUCT_DETAILS.PRODUCT_CATEGORY)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MONEY_RECEIVED)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DATE_RECEIVED)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.STUDENT_DETAILS.FIRST_NAME)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.PAYMENT_ID }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.PAYMENT_ID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.PAYMENT_ID })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

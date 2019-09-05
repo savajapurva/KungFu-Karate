@@ -1,0 +1,91 @@
+﻿@model ClinicManagement.Core.Models.CLASS_DETAILS
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4><b>CLASS DETAILS</b></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label>CLASS NAME</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLASS_NAME)
+        </dd>
+
+        <dt>
+            <label>START TIME</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.START_TIME)
+        </dd>
+
+        <dt>
+            <label>END TIME</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.END_TIME)
+        </dd>
+
+        <dt>
+            <label>MONDAY</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MONDAY)
+        </dd>
+
+        <dt>
+            <label>TUESDAY</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TUESDAY)
+        </dd>
+
+        <dt>
+            <label>WEDNESDAY</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WEDNESDAY)
+        </dd>
+
+        <dt>
+            <label>THRUSDAY</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.THURSDAY)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.FRIDAY)*@
+            <label>FRIDAY</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FRIDAY)
+        </dd>
+
+        <dt>
+            <label>CLASS LEVEL</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLASS_LEVEL.LEVEL_NAME)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CLASS_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

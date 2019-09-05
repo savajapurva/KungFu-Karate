@@ -1,0 +1,136 @@
+﻿@model PagedList.IPagedList<ClinicManagement.Core.Models.STUDENT_DETAILS>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "Index4";
+}
+
+<h2>Index4</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            FIRST_NAME
+        </th>
+        <th>
+            LAST_NAME
+        </th>
+        <th>
+            DOB
+        </th>
+        <th>
+            DATE_OF_JOINING
+        </th>
+        <th>
+            CONTACT_NUM
+        </th>
+        <th>
+            EMAIL_ID
+        </th>
+        <th>
+            ADDRESS
+        </th>
+        <th>
+            RANK_ID
+        </th>
+        <th>
+            ACTIVE
+        </th>
+        <th>
+            MOTHER_NAME
+        </th>
+        <th>
+            MOTHER_MOBILE_NO
+        </th>
+        <th>
+            MOTHER_EMAIL_ID
+        </th>
+        <th>
+            FATHER_NAME
+        </th>
+        <th>
+            FATHER_MOBILE_NO
+        </th>
+        <th>
+            FATHER_EMAIL_ID
+        </th>
+        <th>
+            IS_PARENT
+        </th>
+        <th>
+            FIRST_NAME
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FIRST_NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LAST_NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DATE_OF_JOINING)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CONTACT_NUM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMAIL_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ADDRESS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RANK_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ACTIVE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MOTHER_NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MOTHER_MOBILE_NO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MOTHER_EMAIL_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FATHER_NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FATHER_MOBILE_NO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FATHER_EMAIL_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IS_PARENT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.STUDENT_DETAILS2.FIRST_NAME)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.STUDENT_ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.STUDENT_ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.STUDENT_ID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index4",
+    new { page }))

@@ -1,0 +1,78 @@
+﻿@model IEnumerable<ClinicManagement.Core.Models.Appointment>
+@{
+    ViewBag.Title = "Home Page";
+}
+<html>
+
+<body>
+    <div class="row top_tiles">
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+                <div class="icon"><i class="fa fa-graduation-cap"></i></div>
+                <div class="count patients"></div>
+                <h3>Total Students</h3>
+                <p class="count_bottom"><i class="green todayspatients"> </i> Students</p>
+            </div>
+        </div>
+        @*<div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+                <div class="icon"><i class="fa fa-user"></i></div>
+                <div class="count appointments"></div>
+                <h3>Total Parents</h3>
+                <p class="count_bottom"><i class="green todaysappointments"> </i>  Parents</p>
+            </div>
+        </div>*@
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+                <div class="icon"><i class="fa fa-sort-amount-desc"></i></div>
+                <div class="count availabledoctors"></div>
+                <h3>Total Classes</h3>
+                <p class="count_bottom"><i class="green availabledoctors"> </i> Classes Available</p>
+            </div>
+        </div>
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+                <div class="icon"><i class="fa fa-check-square-o"></i></div>
+                <div class="count users"></div>
+                <h3>Total Users</h3>
+                <p class="count_bottom"><i class="green activeaccounts"> </i> Active Accounts</p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- /top tiles -->
+
+    @section scripts{
+        <script>
+            $(document).ready(function () {
+
+                //render total doctors
+                $.get('../../../Home/TotalDoctors', null, function (data) {
+                    $('.doctors').append(data);
+                }, 'json');
+                //render total users
+                $.get('../../../Home/TotalUsers', null, function (data) {
+                    $('.users').append(data);
+                }, 'json');
+                
+                //render available doctors
+                $.get('../../../Home/TotalClasses', null, function (data) {
+                    $('.availabledoctors').append(data);
+                }, 'json');
+                //ActiveAccounts
+                $.get('../../../Home/ActiveAccounts', null, function (data) {
+                    $('.activeaccounts').append(data);
+                }, 'json');
+                //Render active students
+                $.get('../../../Home/TotalStudents', null, function (data) {
+                    $('.todayspatients').append(data);
+                    $('.patients').append(data);
+                }, 'json');
+
+            });
+        </script>
+    }
+</body>
+</html>

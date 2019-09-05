@@ -1,0 +1,56 @@
+﻿@model ClinicManagement.Core.Models.PAYMENT_DETAILS
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PAYMENT_DETAILS</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PRODUCT_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRODUCT_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MONEY_RECEIVED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MONEY_RECEIVED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATE_RECEIVED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE_RECEIVED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STUDENT_DETAILS.FIRST_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STUDENT_DETAILS.FIRST_NAME)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

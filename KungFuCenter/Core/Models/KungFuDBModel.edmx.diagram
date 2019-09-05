@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7ca98597118c48ca82a870b2e700088f" Name="Diagram1" ZoomLevel="73">
+        <EntityTypeShape EntityType="KungFuDBModel.CLASS_LEVEL" Width="1.5" PointX="9.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KungFuDBModel.PROGRESS_DETAILS" Width="1.875" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KungFuDBModel.RANK_DETAILS" Width="1.875" PointX="4.125" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="KungFuDBModel.FK_PROGRESS_DETAILS_RANK_DETAILS" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="KungFuDBModel.PAYMENT_DETAILS" Width="1.5" PointX="1" PointY="7.5" />
+        <EntityTypeShape EntityType="KungFuDBModel.PRODUCT_DETAILS" Width="2.125" PointX="3.875" PointY="7" />
+        <AssociationConnector Association="KungFuDBModel.FK_PAYMENT_DETAILS_PRODUCT_DETAILS" />
+        <EntityTypeShape EntityType="KungFuDBModel.STUDENT_DETAILS" Width="2.125" PointX="0.5" PointY="0.5" />
+        <AssociationConnector Association="KungFuDBModel.FK_PAYMENT_DETAILS_STUDENT" />
+        <AssociationConnector Association="KungFuDBModel.FK_PROGRESS_DETAILS_STUDENT" />
+        <AssociationConnector Association="KungFuDBModel.FK_STUDENT_DETAILS_RANK_DETAILS1" />
+        <EntityTypeShape EntityType="KungFuDBModel.ATTENDANCE_DETAILS" Width="2" PointX="6.75" PointY="3.25" />
+        <EntityTypeShape EntityType="KungFuDBModel.CLASS_DETAILS" Width="1.5" PointX="7" PointY="5.875" />
+        <AssociationConnector Association="KungFuDBModel.FK_ATTENDANCE_DETAILS_CLASS_DETAILS" />
+        <AssociationConnector Association="KungFuDBModel.FK_ATTENDANCE_DETAILS_STUDENT" />
+        <AssociationConnector Association="KungFuDBModel.FK_CLASS_dETAILS_CLASS_LEVEL" />
+        <AssociationConnector Association="KungFuDBModel.FK_STUDENT_DETAILS_CLASS_DETAILS" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

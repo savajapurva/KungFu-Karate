@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ClinicManagement.Core.Models.RANK_DETAILS>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-title">
+    <div class="title_left">
+        <h3>Rank Details</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_content">
+
+                <button class="btn btn-default">
+                    @Html.ActionLink("Create New", "Create")
+                </button>
+                <table class="data table table-striped table-bordered no-margin" style="overflow-x: auto">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.BELT_NAME)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BELT_NAME)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.RANK_ID }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.RANK_ID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.RANK_ID })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

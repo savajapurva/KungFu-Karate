@@ -1,0 +1,168 @@
+﻿@model ClinicManagement.Core.Models.STUDENT_DETAILS
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4><b>STUDENT DETAILS</b></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label>FIRST NAME</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FIRST_NAME)
+        </dd>
+
+        <dt>
+            <label>LAST NAME</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LAST_NAME)
+        </dd>
+
+        <dt>
+            <label>DATE OF BIRTH </label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOB)
+        </dd>
+
+        <dt>
+            <label>DATE OF JOINING</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE_OF_JOINING)
+        </dd>
+
+        <dt>
+            <label>CONTACT NO</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CONTACT_NUM)
+        </dd>
+
+        <dt>
+            <label>EMAIL ID</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL_ID)
+        </dd>
+
+        <dt>
+            <label>ADDRESS LINE 1</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STREET_ADDRESS)
+        </dd>
+
+        <dt>
+            <label>ADDRESS LINE 2</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STREET_ADDRESS_2)
+        </dd>
+
+        <dt>
+            <label>POSTAL CODE</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.POSTAL_CODE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CITY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CITY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.COUNTRY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.COUNTRY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ACTIVE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ACTIVE)
+        </dd>
+
+    </dl>
+
+        <h4><b>PARENT DETAILS</b></h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                <label>MOTHER NAME</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MOTHER_NAME)
+            </dd>
+
+            <dt>
+                <label>PHONE NO</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MOTHER_MOBILE_NO)
+            </dd>
+
+            <dt>
+                <label>EMAIL ID</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MOTHER_EMAIL_ID)
+            </dd>
+
+            <dt>
+                <label>FATHER NAME</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FATHER_NAME)
+            </dd>
+
+            <dt>
+                <label>PHONE NO</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FATHER_MOBILE_NO)
+            </dd>
+
+            <dt>
+                <label>EMAIL ID</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FATHER_EMAIL_ID)
+            </dd>
+
+           
+        </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.STUDENT_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

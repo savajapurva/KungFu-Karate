@@ -1,0 +1,653 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="KungFuDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ATTENDANCE_DETAILS">
+          <Key>
+            <PropertyRef Name="ATTENDANCE_ID" />
+          </Key>
+          <Property Name="ATTENDANCE_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CLASS_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="STUDENT_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ATTENDANCE_DATE" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CLASS_DETAILS">
+          <Key>
+            <PropertyRef Name="CLASS_ID" />
+          </Key>
+          <Property Name="CLASS_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CLASS_LEVEL_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CLASS_NAME" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="START_TIME" Type="time" Precision="7" Nullable="false" />
+          <Property Name="END_TIME" Type="time" Precision="7" Nullable="false" />
+          <Property Name="MONDAY" Type="tinyint" Nullable="false" />
+          <Property Name="TUESDAY" Type="tinyint" Nullable="false" />
+          <Property Name="WEDNESDAY" Type="tinyint" Nullable="false" />
+          <Property Name="THURSDAY" Type="tinyint" Nullable="false" />
+          <Property Name="FRIDAY" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CLASS_LEVEL">
+          <Key>
+            <PropertyRef Name="CLASS_LEVEL_ID" />
+          </Key>
+          <Property Name="CLASS_LEVEL_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LEVEL_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PAYMENT_DETAILS">
+          <Key>
+            <PropertyRef Name="PAYMENT_ID" />
+          </Key>
+          <Property Name="PAYMENT_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="STUDENT_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PRODUCT_ID" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="MONEY_RECEIVED" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DATE_RECEIVED" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRODUCT_DETAILS">
+          <Key>
+            <PropertyRef Name="PRODUCT_ID" />
+          </Key>
+          <Property Name="PRODUCT_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRODUCT_CATEGORY" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PRODUCT_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PRODUCT_COST_PRICE" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PRODUCT_SELLING_PRICE" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PRODUCT_QUANTITY" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="INVENTORY_DATE" Type="date" />
+        </EntityType>
+        <EntityType Name="PROGRESS_DETAILS">
+          <Key>
+            <PropertyRef Name="PROGRESS_ID" />
+          </Key>
+          <Property Name="PROGRESS_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="STUDENT_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="RANK_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AWARDED_DATE" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RANK-DETAILS">
+          <Key>
+            <PropertyRef Name="RANK_ID" />
+          </Key>
+          <Property Name="RANK_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BELT_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STUDENT_DETAILS">
+          <Key>
+            <PropertyRef Name="STUDENT_ID" />
+          </Key>
+          <Property Name="STUDENT_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIRST_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LAST_NAME" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="DOB" Type="date" Nullable="false" />
+          <Property Name="DATE_OF_JOINING" Type="date" Nullable="false" />
+          <Property Name="CONTACT_NUM" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="EMAIL_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="STREET_ADDRESS" Type="varchar" MaxLength="50" />
+          <Property Name="STREET_ADDRESS_2" Type="varchar" MaxLength="50" />
+          <Property Name="POSTAL_CODE" Type="char" MaxLength="10" />
+          <Property Name="CITY" Type="varchar" MaxLength="20" />
+          <Property Name="COUNTRY" Type="varchar" MaxLength="20" />
+          <Property Name="RANK_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ACTIVE" Type="tinyint" Nullable="false" />
+          <Property Name="MOTHER_NAME" Type="nchar" MaxLength="20" />
+          <Property Name="MOTHER_MOBILE_NO" Type="nchar" MaxLength="10" />
+          <Property Name="MOTHER_EMAIL_ID" Type="nchar" MaxLength="20" />
+          <Property Name="FATHER_NAME" Type="nchar" MaxLength="20" />
+          <Property Name="FATHER_MOBILE_NO" Type="nchar" MaxLength="10" />
+          <Property Name="FATHER_EMAIL_ID" Type="nchar" MaxLength="20" />
+          <Property Name="IS_PARENT" Type="tinyint" Nullable="false" />
+          <Property Name="CHILD_ID" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="BELT_NAME" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="CLASS_ID" Type="numeric" Precision="18" Scale="0" />
+        </EntityType>
+        <Association Name="FK_ATTENDANCE_DETAILS_CLASS_DETAILS">
+          <End Role="CLASS_DETAILS" Type="Self.CLASS_DETAILS" Multiplicity="1" />
+          <End Role="ATTENDANCE_DETAILS" Type="Self.ATTENDANCE_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLASS_DETAILS">
+              <PropertyRef Name="CLASS_ID" />
+            </Principal>
+            <Dependent Role="ATTENDANCE_DETAILS">
+              <PropertyRef Name="CLASS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ATTENDANCE_DETAILS_STUDENT">
+          <End Role="STUDENT_DETAILS" Type="Self.STUDENT_DETAILS" Multiplicity="1" />
+          <End Role="ATTENDANCE_DETAILS" Type="Self.ATTENDANCE_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STUDENT_DETAILS">
+              <PropertyRef Name="STUDENT_ID" />
+            </Principal>
+            <Dependent Role="ATTENDANCE_DETAILS">
+              <PropertyRef Name="STUDENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLASS_dETAILS_CLASS_LEVEL">
+          <End Role="CLASS_LEVEL" Type="Self.CLASS_LEVEL" Multiplicity="1" />
+          <End Role="CLASS_DETAILS" Type="Self.CLASS_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLASS_LEVEL">
+              <PropertyRef Name="CLASS_LEVEL_ID" />
+            </Principal>
+            <Dependent Role="CLASS_DETAILS">
+              <PropertyRef Name="CLASS_LEVEL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PAYMENT_DETAILS_PRODUCT_DETAILS">
+          <End Role="PRODUCT_DETAILS" Type="Self.PRODUCT_DETAILS" Multiplicity="0..1" />
+          <End Role="PAYMENT_DETAILS" Type="Self.PAYMENT_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT_DETAILS">
+              <PropertyRef Name="PRODUCT_ID" />
+            </Principal>
+            <Dependent Role="PAYMENT_DETAILS">
+              <PropertyRef Name="PRODUCT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PAYMENT_DETAILS_STUDENT">
+          <End Role="STUDENT_DETAILS" Type="Self.STUDENT_DETAILS" Multiplicity="1" />
+          <End Role="PAYMENT_DETAILS" Type="Self.PAYMENT_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STUDENT_DETAILS">
+              <PropertyRef Name="STUDENT_ID" />
+            </Principal>
+            <Dependent Role="PAYMENT_DETAILS">
+              <PropertyRef Name="STUDENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PROGRESS_DETAILS_STUDENT">
+          <End Role="STUDENT_DETAILS" Type="Self.STUDENT_DETAILS" Multiplicity="1" />
+          <End Role="PROGRESS_DETAILS" Type="Self.PROGRESS_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STUDENT_DETAILS">
+              <PropertyRef Name="STUDENT_ID" />
+            </Principal>
+            <Dependent Role="PROGRESS_DETAILS">
+              <PropertyRef Name="STUDENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STUDENT_DETAILS_CLASS_DETAILS">
+          <End Role="CLASS_DETAILS" Type="Self.CLASS_DETAILS" Multiplicity="0..1" />
+          <End Role="STUDENT_DETAILS" Type="Self.STUDENT_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLASS_DETAILS">
+              <PropertyRef Name="CLASS_ID" />
+            </Principal>
+            <Dependent Role="STUDENT_DETAILS">
+              <PropertyRef Name="CLASS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STUDENT_DETAILS_RANK-DETAILS1">
+          <End Role="RANK-DETAILS" Type="Self.RANK-DETAILS" Multiplicity="1" />
+          <End Role="STUDENT_DETAILS" Type="Self.STUDENT_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RANK-DETAILS">
+              <PropertyRef Name="RANK_ID" />
+            </Principal>
+            <Dependent Role="STUDENT_DETAILS">
+              <PropertyRef Name="RANK_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KungFuDBModelStoreContainer">
+          <EntitySet Name="ATTENDANCE_DETAILS" EntityType="Self.ATTENDANCE_DETAILS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CLASS_DETAILS" EntityType="Self.CLASS_DETAILS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CLASS_LEVEL" EntityType="Self.CLASS_LEVEL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PAYMENT_DETAILS" EntityType="Self.PAYMENT_DETAILS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCT_DETAILS" EntityType="Self.PRODUCT_DETAILS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PROGRESS_DETAILS" EntityType="Self.PROGRESS_DETAILS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RANK-DETAILS" EntityType="Self.RANK-DETAILS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STUDENT_DETAILS" EntityType="Self.STUDENT_DETAILS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ATTENDANCE_DETAILS_CLASS_DETAILS" Association="Self.FK_ATTENDANCE_DETAILS_CLASS_DETAILS">
+            <End Role="CLASS_DETAILS" EntitySet="CLASS_DETAILS" />
+            <End Role="ATTENDANCE_DETAILS" EntitySet="ATTENDANCE_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ATTENDANCE_DETAILS_STUDENT" Association="Self.FK_ATTENDANCE_DETAILS_STUDENT">
+            <End Role="STUDENT_DETAILS" EntitySet="STUDENT_DETAILS" />
+            <End Role="ATTENDANCE_DETAILS" EntitySet="ATTENDANCE_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLASS_dETAILS_CLASS_LEVEL" Association="Self.FK_CLASS_dETAILS_CLASS_LEVEL">
+            <End Role="CLASS_LEVEL" EntitySet="CLASS_LEVEL" />
+            <End Role="CLASS_DETAILS" EntitySet="CLASS_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PAYMENT_DETAILS_PRODUCT_DETAILS" Association="Self.FK_PAYMENT_DETAILS_PRODUCT_DETAILS">
+            <End Role="PRODUCT_DETAILS" EntitySet="PRODUCT_DETAILS" />
+            <End Role="PAYMENT_DETAILS" EntitySet="PAYMENT_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PAYMENT_DETAILS_STUDENT" Association="Self.FK_PAYMENT_DETAILS_STUDENT">
+            <End Role="STUDENT_DETAILS" EntitySet="STUDENT_DETAILS" />
+            <End Role="PAYMENT_DETAILS" EntitySet="PAYMENT_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PROGRESS_DETAILS_STUDENT" Association="Self.FK_PROGRESS_DETAILS_STUDENT">
+            <End Role="STUDENT_DETAILS" EntitySet="STUDENT_DETAILS" />
+            <End Role="PROGRESS_DETAILS" EntitySet="PROGRESS_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STUDENT_DETAILS_CLASS_DETAILS" Association="Self.FK_STUDENT_DETAILS_CLASS_DETAILS">
+            <End Role="CLASS_DETAILS" EntitySet="CLASS_DETAILS" />
+            <End Role="STUDENT_DETAILS" EntitySet="STUDENT_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STUDENT_DETAILS_RANK-DETAILS1" Association="Self.FK_STUDENT_DETAILS_RANK-DETAILS1">
+            <End Role="RANK-DETAILS" EntitySet="RANK-DETAILS" />
+            <End Role="STUDENT_DETAILS" EntitySet="STUDENT_DETAILS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KungFuDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CLASS_LEVEL">
+          <Key>
+            <PropertyRef Name="CLASS_LEVEL_ID" />
+          </Key>
+          <Property Name="CLASS_LEVEL_ID" Type="Decimal" Nullable="false" annotation:StoreGeneratedPattern="Identity" Precision="18" Scale="0" />
+          <Property Name="LEVEL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CLASS_DETAILS" Relationship="KungFuDBModel.FK_CLASS_dETAILS_CLASS_LEVEL" FromRole="CLASS_LEVEL" ToRole="CLASS_DETAILS" />
+        </EntityType>
+        <EntityType Name="PROGRESS_DETAILS">
+          <Key>
+            <PropertyRef Name="PROGRESS_ID" />
+          </Key>
+          <Property Name="PROGRESS_ID" Type="Decimal" Nullable="false" annotation:StoreGeneratedPattern="Identity" Precision="18" Scale="0" />
+          <Property Name="STUDENT_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="RANK_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="AWARDED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="RANK_DETAILS" Relationship="Self.FK_PROGRESS_DETAILS_RANK_DETAILS" FromRole="PROGRESS_DETAILS" ToRole="RANK_DETAILS" />
+          <NavigationProperty Name="STUDENT_DETAILS" Relationship="KungFuDBModel.FK_PROGRESS_DETAILS_STUDENT" FromRole="PROGRESS_DETAILS" ToRole="STUDENT_DETAILS" />
+        </EntityType>
+        <EntityType Name="RANK_DETAILS">
+          <Key>
+            <PropertyRef Name="RANK_ID" />
+          </Key>
+          <Property Name="RANK_ID" Type="Decimal" Nullable="false" annotation:StoreGeneratedPattern="Identity" Precision="18" Scale="0" />
+          <Property Name="BELT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PROGRESS_DETAILS" Relationship="Self.FK_PROGRESS_DETAILS_RANK_DETAILS" FromRole="RANK_DETAILS" ToRole="PROGRESS_DETAILS" />
+          <NavigationProperty Name="STUDENT_DETAILS" Relationship="KungFuDBModel.FK_STUDENT_DETAILS_RANK_DETAILS1" FromRole="RANK_DETAILS" ToRole="STUDENT_DETAILS" />
+        </EntityType>
+        <Association Name="FK_PROGRESS_DETAILS_RANK_DETAILS">
+          <End Role="RANK_DETAILS" Type="Self.RANK_DETAILS" Multiplicity="1" />
+          <End Role="PROGRESS_DETAILS" Type="Self.PROGRESS_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RANK_DETAILS">
+              <PropertyRef Name="RANK_ID" />
+            </Principal>
+            <Dependent Role="PROGRESS_DETAILS">
+              <PropertyRef Name="RANK_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KungFuDBEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CLASS_LEVEL" EntityType="Self.CLASS_LEVEL" />
+          <EntitySet Name="PROGRESS_DETAILS" EntityType="Self.PROGRESS_DETAILS" />
+          <EntitySet Name="RANK_DETAILS" EntityType="Self.RANK_DETAILS" />
+          <AssociationSet Name="FK_PROGRESS_DETAILS_RANK_DETAILS" Association="Self.FK_PROGRESS_DETAILS_RANK_DETAILS">
+            <End Role="RANK_DETAILS" EntitySet="RANK_DETAILS" />
+            <End Role="PROGRESS_DETAILS" EntitySet="PROGRESS_DETAILS" />
+          </AssociationSet>
+          <EntitySet Name="PAYMENT_DETAILS" EntityType="KungFuDBModel.PAYMENT_DETAILS" />
+          <EntitySet Name="PRODUCT_DETAILS" EntityType="KungFuDBModel.PRODUCT_DETAILS" />
+          <AssociationSet Name="FK_PAYMENT_DETAILS_PRODUCT_DETAILS" Association="KungFuDBModel.FK_PAYMENT_DETAILS_PRODUCT_DETAILS">
+            <End Role="PRODUCT_DETAILS" EntitySet="PRODUCT_DETAILS" />
+            <End Role="PAYMENT_DETAILS" EntitySet="PAYMENT_DETAILS" />
+          </AssociationSet>
+          <EntitySet Name="STUDENT_DETAILS" EntityType="KungFuDBModel.STUDENT_DETAILS" />
+          <AssociationSet Name="FK_PAYMENT_DETAILS_STUDENT" Association="KungFuDBModel.FK_PAYMENT_DETAILS_STUDENT">
+            <End Role="STUDENT_DETAILS" EntitySet="STUDENT_DETAILS" />
+            <End Role="PAYMENT_DETAILS" EntitySet="PAYMENT_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PROGRESS_DETAILS_STUDENT" Association="KungFuDBModel.FK_PROGRESS_DETAILS_STUDENT">
+            <End Role="STUDENT_DETAILS" EntitySet="STUDENT_DETAILS" />
+            <End Role="PROGRESS_DETAILS" EntitySet="PROGRESS_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STUDENT_DETAILS_RANK_DETAILS1" Association="KungFuDBModel.FK_STUDENT_DETAILS_RANK_DETAILS1">
+            <End Role="RANK_DETAILS" EntitySet="RANK_DETAILS" />
+            <End Role="STUDENT_DETAILS" EntitySet="STUDENT_DETAILS" />
+          </AssociationSet>
+          <EntitySet Name="ATTENDANCE_DETAILS" EntityType="KungFuDBModel.ATTENDANCE_DETAILS" />
+          <EntitySet Name="CLASS_DETAILS" EntityType="KungFuDBModel.CLASS_DETAILS" />
+          <AssociationSet Name="FK_ATTENDANCE_DETAILS_CLASS_DETAILS" Association="KungFuDBModel.FK_ATTENDANCE_DETAILS_CLASS_DETAILS">
+            <End Role="CLASS_DETAILS" EntitySet="CLASS_DETAILS" />
+            <End Role="ATTENDANCE_DETAILS" EntitySet="ATTENDANCE_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ATTENDANCE_DETAILS_STUDENT" Association="KungFuDBModel.FK_ATTENDANCE_DETAILS_STUDENT">
+            <End Role="STUDENT_DETAILS" EntitySet="STUDENT_DETAILS" />
+            <End Role="ATTENDANCE_DETAILS" EntitySet="ATTENDANCE_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLASS_dETAILS_CLASS_LEVEL" Association="KungFuDBModel.FK_CLASS_dETAILS_CLASS_LEVEL">
+            <End Role="CLASS_LEVEL" EntitySet="CLASS_LEVEL" />
+            <End Role="CLASS_DETAILS" EntitySet="CLASS_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STUDENT_DETAILS_CLASS_DETAILS" Association="KungFuDBModel.FK_STUDENT_DETAILS_CLASS_DETAILS">
+            <End Role="CLASS_DETAILS" EntitySet="CLASS_DETAILS" />
+            <End Role="STUDENT_DETAILS" EntitySet="STUDENT_DETAILS" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="PAYMENT_DETAILS">
+          <Key>
+            <PropertyRef Name="PAYMENT_ID" />
+          </Key>
+          <Property Name="PAYMENT_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="STUDENT_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="PRODUCT_ID" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="MONEY_RECEIVED" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="DATE_RECEIVED" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="PRODUCT_DETAILS" Relationship="KungFuDBModel.FK_PAYMENT_DETAILS_PRODUCT_DETAILS" FromRole="PAYMENT_DETAILS" ToRole="PRODUCT_DETAILS" />
+          <NavigationProperty Name="STUDENT_DETAILS" Relationship="KungFuDBModel.FK_PAYMENT_DETAILS_STUDENT" FromRole="PAYMENT_DETAILS" ToRole="STUDENT_DETAILS" />
+        </EntityType>
+        <EntityType Name="PRODUCT_DETAILS">
+          <Key>
+            <PropertyRef Name="PRODUCT_ID" />
+          </Key>
+          <Property Name="PRODUCT_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRODUCT_CATEGORY" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PRODUCT_NAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PRODUCT_COST_PRICE" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="PRODUCT_SELLING_PRICE" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="PRODUCT_QUANTITY" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="INVENTORY_DATE" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="PAYMENT_DETAILS" Relationship="KungFuDBModel.FK_PAYMENT_DETAILS_PRODUCT_DETAILS" FromRole="PRODUCT_DETAILS" ToRole="PAYMENT_DETAILS" />
+        </EntityType>
+        <Association Name="FK_PAYMENT_DETAILS_PRODUCT_DETAILS">
+          <End Type="KungFuDBModel.PRODUCT_DETAILS" Role="PRODUCT_DETAILS" Multiplicity="0..1" />
+          <End Type="KungFuDBModel.PAYMENT_DETAILS" Role="PAYMENT_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT_DETAILS">
+              <PropertyRef Name="PRODUCT_ID" />
+            </Principal>
+            <Dependent Role="PAYMENT_DETAILS">
+              <PropertyRef Name="PRODUCT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="STUDENT_DETAILS">
+          <Key>
+            <PropertyRef Name="STUDENT_ID" />
+          </Key>
+          <Property Name="STUDENT_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIRST_NAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LAST_NAME" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DATE_OF_JOINING" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CONTACT_NUM" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="EMAIL_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="STREET_ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="STREET_ADDRESS_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="POSTAL_CODE" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="CITY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RANK_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ACTIVE" Type="Byte" Nullable="false" />
+          <Property Name="MOTHER_NAME" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="MOTHER_MOBILE_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="MOTHER_EMAIL_ID" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="FATHER_NAME" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="FATHER_MOBILE_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="FATHER_EMAIL_ID" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="IS_PARENT" Type="Byte" Nullable="false" />
+          <Property Name="CHILD_ID" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="BELT_NAME" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CLASS_ID" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="PAYMENT_DETAILS" Relationship="KungFuDBModel.FK_PAYMENT_DETAILS_STUDENT" FromRole="STUDENT_DETAILS" ToRole="PAYMENT_DETAILS" />
+          <NavigationProperty Name="PROGRESS_DETAILS" Relationship="KungFuDBModel.FK_PROGRESS_DETAILS_STUDENT" FromRole="STUDENT_DETAILS" ToRole="PROGRESS_DETAILS" />
+          <NavigationProperty Name="RANK_DETAILS" Relationship="KungFuDBModel.FK_STUDENT_DETAILS_RANK_DETAILS1" FromRole="STUDENT_DETAILS" ToRole="RANK_DETAILS" />
+          <NavigationProperty Name="ATTENDANCE_DETAILS" Relationship="KungFuDBModel.FK_ATTENDANCE_DETAILS_STUDENT" FromRole="STUDENT_DETAILS" ToRole="ATTENDANCE_DETAILS" />
+          <NavigationProperty Name="CLASS_DETAILS" Relationship="KungFuDBModel.FK_STUDENT_DETAILS_CLASS_DETAILS" FromRole="STUDENT_DETAILS" ToRole="CLASS_DETAILS" />
+        </EntityType>
+        <Association Name="FK_PAYMENT_DETAILS_STUDENT">
+          <End Type="KungFuDBModel.STUDENT_DETAILS" Role="STUDENT_DETAILS" Multiplicity="1" />
+          <End Type="KungFuDBModel.PAYMENT_DETAILS" Role="PAYMENT_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STUDENT_DETAILS">
+              <PropertyRef Name="STUDENT_ID" />
+            </Principal>
+            <Dependent Role="PAYMENT_DETAILS">
+              <PropertyRef Name="STUDENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PROGRESS_DETAILS_STUDENT">
+          <End Type="KungFuDBModel.STUDENT_DETAILS" Role="STUDENT_DETAILS" Multiplicity="1" />
+          <End Type="KungFuDBModel.PROGRESS_DETAILS" Role="PROGRESS_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STUDENT_DETAILS">
+              <PropertyRef Name="STUDENT_ID" />
+            </Principal>
+            <Dependent Role="PROGRESS_DETAILS">
+              <PropertyRef Name="STUDENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STUDENT_DETAILS_RANK_DETAILS1">
+          <End Type="KungFuDBModel.RANK_DETAILS" Role="RANK_DETAILS" Multiplicity="1" />
+          <End Type="KungFuDBModel.STUDENT_DETAILS" Role="STUDENT_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RANK_DETAILS">
+              <PropertyRef Name="RANK_ID" />
+            </Principal>
+            <Dependent Role="STUDENT_DETAILS">
+              <PropertyRef Name="RANK_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ATTENDANCE_DETAILS">
+          <Key>
+            <PropertyRef Name="ATTENDANCE_ID" />
+          </Key>
+          <Property Name="ATTENDANCE_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CLASS_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="STUDENT_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ATTENDANCE_DATE" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="CLASS_DETAILS" Relationship="KungFuDBModel.FK_ATTENDANCE_DETAILS_CLASS_DETAILS" FromRole="ATTENDANCE_DETAILS" ToRole="CLASS_DETAILS" />
+          <NavigationProperty Name="STUDENT_DETAILS" Relationship="KungFuDBModel.FK_ATTENDANCE_DETAILS_STUDENT" FromRole="ATTENDANCE_DETAILS" ToRole="STUDENT_DETAILS" />
+        </EntityType>
+        <EntityType Name="CLASS_DETAILS">
+          <Key>
+            <PropertyRef Name="CLASS_ID" />
+          </Key>
+          <Property Name="CLASS_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="CLASS_LEVEL_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="CLASS_NAME" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="START_TIME" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="END_TIME" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="MONDAY" Type="Byte" Nullable="false" />
+          <Property Name="TUESDAY" Type="Byte" Nullable="false" />
+          <Property Name="WEDNESDAY" Type="Byte" Nullable="false" />
+          <Property Name="THURSDAY" Type="Byte" Nullable="false" />
+          <Property Name="FRIDAY" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="ATTENDANCE_DETAILS" Relationship="KungFuDBModel.FK_ATTENDANCE_DETAILS_CLASS_DETAILS" FromRole="CLASS_DETAILS" ToRole="ATTENDANCE_DETAILS" />
+          <NavigationProperty Name="CLASS_LEVEL" Relationship="KungFuDBModel.FK_CLASS_dETAILS_CLASS_LEVEL" FromRole="CLASS_DETAILS" ToRole="CLASS_LEVEL" />
+          <NavigationProperty Name="STUDENT_DETAILS" Relationship="KungFuDBModel.FK_STUDENT_DETAILS_CLASS_DETAILS" FromRole="CLASS_DETAILS" ToRole="STUDENT_DETAILS" />
+        </EntityType>
+        <Association Name="FK_ATTENDANCE_DETAILS_CLASS_DETAILS">
+          <End Type="KungFuDBModel.CLASS_DETAILS" Role="CLASS_DETAILS" Multiplicity="1" />
+          <End Type="KungFuDBModel.ATTENDANCE_DETAILS" Role="ATTENDANCE_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLASS_DETAILS">
+              <PropertyRef Name="CLASS_ID" />
+            </Principal>
+            <Dependent Role="ATTENDANCE_DETAILS">
+              <PropertyRef Name="CLASS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ATTENDANCE_DETAILS_STUDENT">
+          <End Type="KungFuDBModel.STUDENT_DETAILS" Role="STUDENT_DETAILS" Multiplicity="1" />
+          <End Type="KungFuDBModel.ATTENDANCE_DETAILS" Role="ATTENDANCE_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STUDENT_DETAILS">
+              <PropertyRef Name="STUDENT_ID" />
+            </Principal>
+            <Dependent Role="ATTENDANCE_DETAILS">
+              <PropertyRef Name="STUDENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLASS_dETAILS_CLASS_LEVEL">
+          <End Type="KungFuDBModel.CLASS_LEVEL" Role="CLASS_LEVEL" Multiplicity="1" />
+          <End Type="KungFuDBModel.CLASS_DETAILS" Role="CLASS_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLASS_LEVEL">
+              <PropertyRef Name="CLASS_LEVEL_ID" />
+            </Principal>
+            <Dependent Role="CLASS_DETAILS">
+              <PropertyRef Name="CLASS_LEVEL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STUDENT_DETAILS_CLASS_DETAILS">
+          <End Type="KungFuDBModel.CLASS_DETAILS" Role="CLASS_DETAILS" Multiplicity="0..1" />
+          <End Type="KungFuDBModel.STUDENT_DETAILS" Role="STUDENT_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLASS_DETAILS">
+              <PropertyRef Name="CLASS_ID" />
+            </Principal>
+            <Dependent Role="STUDENT_DETAILS">
+              <PropertyRef Name="CLASS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KungFuDBModelStoreContainer" CdmEntityContainer="KungFuDBEntities2">
+          <EntitySetMapping Name="CLASS_LEVEL">
+            <EntityTypeMapping TypeName="KungFuDBModel.CLASS_LEVEL">
+              <MappingFragment StoreEntitySet="CLASS_LEVEL">
+                <ScalarProperty Name="CLASS_LEVEL_ID" ColumnName="CLASS_LEVEL_ID" />
+                <ScalarProperty Name="LEVEL_NAME" ColumnName="LEVEL_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROGRESS_DETAILS">
+            <EntityTypeMapping TypeName="KungFuDBModel.PROGRESS_DETAILS">
+              <MappingFragment StoreEntitySet="PROGRESS_DETAILS">
+                <ScalarProperty Name="PROGRESS_ID" ColumnName="PROGRESS_ID" />
+                <ScalarProperty Name="STUDENT_ID" ColumnName="STUDENT_ID" />
+                <ScalarProperty Name="RANK_ID" ColumnName="RANK_ID" />
+                <ScalarProperty Name="AWARDED_DATE" ColumnName="AWARDED_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RANK_DETAILS">
+            <EntityTypeMapping TypeName="KungFuDBModel.RANK_DETAILS">
+              <MappingFragment StoreEntitySet="RANK-DETAILS">
+                <ScalarProperty Name="RANK_ID" ColumnName="RANK_ID" />
+                <ScalarProperty Name="BELT_NAME" ColumnName="BELT_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAYMENT_DETAILS">
+            <EntityTypeMapping TypeName="KungFuDBModel.PAYMENT_DETAILS">
+              <MappingFragment StoreEntitySet="PAYMENT_DETAILS">
+                <ScalarProperty Name="DATE_RECEIVED" ColumnName="DATE_RECEIVED" />
+                <ScalarProperty Name="MONEY_RECEIVED" ColumnName="MONEY_RECEIVED" />
+                <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+                <ScalarProperty Name="STUDENT_ID" ColumnName="STUDENT_ID" />
+                <ScalarProperty Name="PAYMENT_ID" ColumnName="PAYMENT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCT_DETAILS">
+            <EntityTypeMapping TypeName="KungFuDBModel.PRODUCT_DETAILS">
+              <MappingFragment StoreEntitySet="PRODUCT_DETAILS">
+                <ScalarProperty Name="INVENTORY_DATE" ColumnName="INVENTORY_DATE" />
+                <ScalarProperty Name="PRODUCT_QUANTITY" ColumnName="PRODUCT_QUANTITY" />
+                <ScalarProperty Name="PRODUCT_SELLING_PRICE" ColumnName="PRODUCT_SELLING_PRICE" />
+                <ScalarProperty Name="PRODUCT_COST_PRICE" ColumnName="PRODUCT_COST_PRICE" />
+                <ScalarProperty Name="PRODUCT_NAME" ColumnName="PRODUCT_NAME" />
+                <ScalarProperty Name="PRODUCT_CATEGORY" ColumnName="PRODUCT_CATEGORY" />
+                <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STUDENT_DETAILS">
+            <EntityTypeMapping TypeName="KungFuDBModel.STUDENT_DETAILS">
+              <MappingFragment StoreEntitySet="STUDENT_DETAILS">
+                <ScalarProperty Name="CLASS_ID" ColumnName="CLASS_ID" />
+                <ScalarProperty Name="BELT_NAME" ColumnName="BELT_NAME" />
+                <ScalarProperty Name="CHILD_ID" ColumnName="CHILD_ID" />
+                <ScalarProperty Name="IS_PARENT" ColumnName="IS_PARENT" />
+                <ScalarProperty Name="FATHER_EMAIL_ID" ColumnName="FATHER_EMAIL_ID" />
+                <ScalarProperty Name="FATHER_MOBILE_NO" ColumnName="FATHER_MOBILE_NO" />
+                <ScalarProperty Name="FATHER_NAME" ColumnName="FATHER_NAME" />
+                <ScalarProperty Name="MOTHER_EMAIL_ID" ColumnName="MOTHER_EMAIL_ID" />
+                <ScalarProperty Name="MOTHER_MOBILE_NO" ColumnName="MOTHER_MOBILE_NO" />
+                <ScalarProperty Name="MOTHER_NAME" ColumnName="MOTHER_NAME" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="RANK_ID" ColumnName="RANK_ID" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="POSTAL_CODE" ColumnName="POSTAL_CODE" />
+                <ScalarProperty Name="STREET_ADDRESS_2" ColumnName="STREET_ADDRESS_2" />
+                <ScalarProperty Name="STREET_ADDRESS" ColumnName="STREET_ADDRESS" />
+                <ScalarProperty Name="EMAIL_ID" ColumnName="EMAIL_ID" />
+                <ScalarProperty Name="CONTACT_NUM" ColumnName="CONTACT_NUM" />
+                <ScalarProperty Name="DATE_OF_JOINING" ColumnName="DATE_OF_JOINING" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="STUDENT_ID" ColumnName="STUDENT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ATTENDANCE_DETAILS">
+            <EntityTypeMapping TypeName="KungFuDBModel.ATTENDANCE_DETAILS">
+              <MappingFragment StoreEntitySet="ATTENDANCE_DETAILS">
+                <ScalarProperty Name="ATTENDANCE_DATE" ColumnName="ATTENDANCE_DATE" />
+                <ScalarProperty Name="STUDENT_ID" ColumnName="STUDENT_ID" />
+                <ScalarProperty Name="CLASS_ID" ColumnName="CLASS_ID" />
+                <ScalarProperty Name="ATTENDANCE_ID" ColumnName="ATTENDANCE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLASS_DETAILS">
+            <EntityTypeMapping TypeName="KungFuDBModel.CLASS_DETAILS">
+              <MappingFragment StoreEntitySet="CLASS_DETAILS">
+                <ScalarProperty Name="FRIDAY" ColumnName="FRIDAY" />
+                <ScalarProperty Name="THURSDAY" ColumnName="THURSDAY" />
+                <ScalarProperty Name="WEDNESDAY" ColumnName="WEDNESDAY" />
+                <ScalarProperty Name="TUESDAY" ColumnName="TUESDAY" />
+                <ScalarProperty Name="MONDAY" ColumnName="MONDAY" />
+                <ScalarProperty Name="END_TIME" ColumnName="END_TIME" />
+                <ScalarProperty Name="START_TIME" ColumnName="START_TIME" />
+                <ScalarProperty Name="CLASS_NAME" ColumnName="CLASS_NAME" />
+                <ScalarProperty Name="CLASS_LEVEL_ID" ColumnName="CLASS_LEVEL_ID" />
+                <ScalarProperty Name="CLASS_ID" ColumnName="CLASS_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,59 @@
+﻿@model ClinicManagement.Core.Models.PRODUCT_DETAILS
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4><b>PRODUCT DETAILS</b></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label>PRODUCT NAME</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRODUCT_NAME)
+        </dd>
+
+
+        <dt>
+            <label>COST PRICE</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRODUCT_COST_PRICE)
+        </dd>
+
+        <dt>
+            <label>SELLING PRICE</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRODUCT_SELLING_PRICE)
+        </dd>
+
+        <dt>
+            <label>PRODUCT QUANTITY</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRODUCT_QUANTITY)
+        </dd>
+
+        <dt>
+            <label>INVENTORY DATE</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.INVENTORY_DATE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PRODUCT_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

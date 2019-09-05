@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ClinicManagement.Core.Models.CLASS_LEVEL>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-title">
+    <div class="title_left">
+        <h3>Class Level</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_content">
+                <button class="btn btn-default">
+                    @Html.ActionLink("Create New", "Create")
+                </button>
+
+                <table id="patients" class="data table table-striped table-bordered no-margin" style="overflow-x: auto"">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LEVEL_NAME)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LEVEL_NAME)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.CLASS_LEVEL_ID }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.CLASS_LEVEL_ID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.CLASS_LEVEL_ID })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

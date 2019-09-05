@@ -1,0 +1,96 @@
+﻿@model IEnumerable<ClinicManagement.Core.Models.CLASS_DETAILS>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="page-title">
+    <div class="title_left">
+        <h3><b>CLASS DETAILS</b></h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_content">
+                <button class="btn btn-default">
+                    @Html.ActionLink("Create New", "Create")
+                </button>
+
+                <table id="patients" class="data table table-striped table-bordered no-margin" style="overflow-x: auto">
+                    <tr>
+                        <th>
+                            CLASS NAME
+                        </th>
+                        <th>
+                            START TIME
+                        </th>
+                        <th>
+                            END TIME
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MONDAY)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TUESDAY)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.WEDNESDAY)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.THURSDAY)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FRIDAY)
+                        </th>
+                        <th>
+                            CLASS LEVEL
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CLASS_NAME)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.START_TIME)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.END_TIME)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MONDAY)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TUESDAY)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.WEDNESDAY)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.THURSDAY)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FRIDAY)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CLASS_LEVEL.LEVEL_NAME)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.CLASS_ID }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.CLASS_ID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.CLASS_ID })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+﻿@model IEnumerable<ClinicManagement.Core.Models.PRODUCT_DETAILS>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-title">
+    <div class="title_left">
+        <h3><b>PRODUCT DETAILS</b></h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_content">
+
+                <button class="btn btn-default">
+                    @Html.ActionLink("Create New", "Create")
+                </button>
+
+                <table class="data table table-striped table-bordered no-margin" style="overflow-x: auto">
+                    <tr>
+                        <th>
+                            PRODUCT NAME
+                        </th>
+                       
+                        <th>
+                           COST PRICE
+                        </th>
+                        <th>
+                            SELLING PRICE
+                        </th>
+                        <th>
+                            PRODUCT QUANTITY
+                        </th>
+                        <th>
+                            INVENTORY DATE
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PRODUCT_NAME)
+                    </td>
+                   
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PRODUCT_COST_PRICE)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PRODUCT_SELLING_PRICE)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PRODUCT_QUANTITY)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.INVENTORY_DATE)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PRODUCT_ID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.PRODUCT_ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.PRODUCT_ID })
+                    </td>
+                </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

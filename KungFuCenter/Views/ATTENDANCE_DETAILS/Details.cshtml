@@ -1,0 +1,42 @@
+﻿@model ClinicManagement.Core.Models.ATTENDANCE_DETAILS
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4><b>ATTENDANCE DETAILS</b></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label>ATTENDENCE DATE</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ATTENDANCE_DATE)
+        </dd>
+
+        <dt>
+            <label>CLASS NAME</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLASS_DETAILS.CLASS_NAME)
+        </dd>
+
+        <dt>
+            <label>FIRST NAME</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STUDENT_DETAILS.FIRST_NAME)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ATTENDANCE_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,42 @@
+﻿@model ClinicManagement.Core.Models.PROGRESS_DETAILS
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4><b>PROGRESS DETAILS</b></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label>AWARDED DATE</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AWARDED_DATE)
+        </dd>
+
+        <dt>
+            <label>BELT NAME</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RANK_DETAILS.BELT_NAME)
+        </dd>
+
+        <dt>
+            <label>STUDENT NAME</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STUDENT_DETAILS.FIRST_NAME)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PROGRESS_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
