@@ -38,7 +38,7 @@ This is a web application for the institutions who wants a system that has varie
 
 ## Snapshots
 
-<img src="img/a (2).png">
+<img src="img/a (14).png">
 
 ---
 
@@ -86,6 +86,6 @@ This is a web application for the institutions who wants a system that has varie
 
 ---
 
-<img src="img/a (14).png">
+<img src="img/a (2).png">
 
 ---
