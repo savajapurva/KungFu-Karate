@@ -1,5 +1,5 @@
 
-![Dashboard](https://github.com/AhmedMah/ClinicManagement/blob/master/ClinicManagement/Content/images/d1.PNG)
+<img src="img/a.png">
 
 # Clinic Management
 
