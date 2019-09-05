@@ -1,9 +1,9 @@
 
 <img src="img/a (1).png">
 
-# Clinic Management
+# Kung Fu Karate Academy - A student management system
 
-Clinic web application  to support requirement which is that patients visit clinic and get registered, after that, they make an appointment to available doctors. By default the appointment gets a pending status because it needs to be reviewed. After that, the doctor is going to work out the patient attendance. Under the report we should have daily and monthly appointments.
+This is a web application for the institutions who wants a system that has variety of functions such as student registration, attendance and progress tracking, payment management and class management. 
 
 # Frameworks - Libraries
 
@@ -11,6 +11,8 @@ Clinic web application  to support requirement which is that patients visit clin
 2. Entity Framework
 3. Ninject
 4. Automapper
+5. Bootstrap 3
+6. JQuery
 
 # Running Project
 
