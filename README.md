@@ -5,7 +5,7 @@
 
 This is a web application for the institutions who wants a system that has variety of functions such as student registration, attendance and progress tracking, payment management and class management. 
 
-# Frameworks - Libraries
+## Frameworks - Libraries
 
 1. ASP.NET MVC (version 5)
 2. Entity Framework
@@ -14,9 +14,13 @@ This is a web application for the institutions who wants a system that has varie
 5. Bootstrap 3
 6. JQuery
 
-# Running Project
+## Running Project
 
 - Open the project with Visual Studio.
+- Open .sln file provided in the visual studio.
+- Open SQL Server Management Studio(SSMS) and connect it to SQL Server
+- Restore the database provided by Right Click on Databases and then click onRestore Database. Then navigate to the database file and import it.
+- Open Visual Studio and run the IIS Express to run the project
 - in `web.config`file change the connection string according to your system.
   ```
   <connectionString><add name="ClinicDB" connectionString="data source=Your data source; initial catalog=ClinicDB;Integrated Security=True" providerName="System.Data.SqlClient" /></connectionString>
