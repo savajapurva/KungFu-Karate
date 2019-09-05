@@ -13,6 +13,7 @@ This is a web application for the institutions who wants a system that has varie
 4. Automapper
 5. Bootstrap 3
 6. JQuery
+7. Font Awesome
 
 ## Running Project
 
